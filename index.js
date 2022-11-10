@@ -4,20 +4,21 @@ let previousBtn = document.getElementById("prevBtn");
 let nextBtn = document.getElementById("nextBtn");
 
 let imageIndex = 0;
-let imageArray = [];
+let imageArray = ["./images/image1.jpg", "./images/image2.jpg", "./images/image3.jpg", "./images/image4.jpg", "./images/image5.jpg"];
 
 function slideShow(params) {
 	if (params === "next") {
-		i++;
-		if (i === images.length) {
-			i = images.length - 1;
+		imageIndex++;
+		if (imageIndex === imageArray.length) {
+			imageIndex = 0;
+			console.log("End");
 		}
 	} else if (params === "prev") {
-		i--;
+		imageIndex--;
 
-		if (i < 0) {
-			i = 0;
+		if (imageIndex < 0) {
+			imageIndex = 0;
 		}
 	}
-	document.getElementById("imageSlide").src = imageArray[i];
+	document.getElementById("imageSlide").src = imageArray[imageIndex];
 }
